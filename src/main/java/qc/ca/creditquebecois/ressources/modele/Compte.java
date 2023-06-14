@@ -2,11 +2,9 @@ package qc.ca.creditquebecois.ressources.modele;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.bson.types.ObjectId;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,13 +15,13 @@ public class Compte {
     @Id
     private ObjectId id;
     /**
-     *  Nom du compte.
+     * Nom du compte.
      */
     // La position courante du compte private
     @JsonProperty("nomDeCompte")
     String nomDeCompte;
     /**
-     *  Solde du compte.
+     * Solde du compte.
      */
     @JsonProperty("soldeCompte")
     double soldeCompte;
@@ -31,6 +29,7 @@ public class Compte {
     private List<Transaction> listeTransactions;
 
     // Constructeur
+
     /**
      * Instantiates a new Compte.
      *
@@ -46,6 +45,7 @@ public class Compte {
         this.listeTransactions = listeTransactions;
     }
     // ajoute une somme à la position courante // et met à jour la date de dernière opération
+
     /**
      * Ajouter.
      *
@@ -53,11 +53,12 @@ public class Compte {
      * @param typeTransaction  le type de la transaction
      * @param titreTransaction le titre de la transaction
      */
-   public void ajouter(double somme, String typeTransaction, String titreTransaction) {
+    public void ajouter(double somme, String typeTransaction, String titreTransaction) {
         soldeCompte += somme;
         this.listeTransactions.add(new Transaction(false, somme, typeTransaction, titreTransaction));
     }
     // retire une somme à la position courante // et met à jour la date de dernière opération
+
     /**
      * Retirer.
      *
@@ -69,8 +70,10 @@ public class Compte {
         soldeCompte -= somme;
         this.listeTransactions.add(new Transaction(true, somme, typeTransaction, titreTransaction));
     }
+
     /**
      * Gets id.
+     *
      * @return id
      */
     public ObjectId getId() {
@@ -79,6 +82,7 @@ public class Compte {
 
     /**
      * Sets id.
+     *
      * @param id the id
      */
     public void setId(ObjectId id) {

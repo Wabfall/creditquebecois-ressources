@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 public class MongoDBConfig extends AbstractMongoClientConfiguration {
     /**
      * Définie le nom de la base de données à laquelle l'application se connectera.
+     *
      * @return
      */
     @Override
@@ -24,6 +25,7 @@ public class MongoDBConfig extends AbstractMongoClientConfiguration {
 
     /**
      * Cette méthode crée et configure le client MongoDB utilisant les paramètres spécifiés.
+     *
      * @return
      */
     @Override

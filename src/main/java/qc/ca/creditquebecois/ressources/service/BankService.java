@@ -1,14 +1,16 @@
 package qc.ca.creditquebecois.ressources.service;
 
-import qc.ca.creditquebecois.ressources.modele.Compte;
-import qc.ca.creditquebecois.ressources.repository.CompteRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import qc.ca.creditquebecois.ressources.modele.Compte;
+import qc.ca.creditquebecois.ressources.repository.CompteRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * The type Bank service.
@@ -21,6 +23,7 @@ public class BankService {
 
     /**
      * Creer compte string.
+     *
      * @param nomDeCompte   nom du compte
      * @param sommeInitiale somme initiale
      * @return string
@@ -36,7 +39,7 @@ public class BankService {
     /**
      * Consulter le compte.
      *
-     * @param idCompte  id du compte
+     * @param idCompte id du compte
      * @return compte
      */
     public Compte consulterCompte(String idCompte) {
@@ -56,7 +59,7 @@ public class BankService {
     public void ajouterArgent(String idCompte, double sommeAAjouter, String typeTransaction, String titreTransaction) {
         ObjectId idCompteObject = new ObjectId(idCompte);
         Optional<Compte> compteOptionnel = compteRepository.findById(idCompteObject);
-        if(compteOptionnel.isPresent()){
+        if (compteOptionnel.isPresent()) {
             Compte compte = compteOptionnel.get();
             compte.ajouter(sommeAAjouter, typeTransaction, titreTransaction);
             compteRepository.save(compte);
@@ -74,7 +77,7 @@ public class BankService {
     public void retirerArgent(String idCompte, double sommeARetirer, String typeTransaction, String titreTransaction) {
         ObjectId idCompteObject = new ObjectId(idCompte);
         Optional<Compte> compteOptionnel = compteRepository.findById(idCompteObject);
-        if(compteOptionnel.isPresent()){
+        if (compteOptionnel.isPresent()) {
             Compte compte = compteOptionnel.get();
             compte.retirer(sommeARetirer, typeTransaction, titreTransaction);
             compteRepository.save(compte);

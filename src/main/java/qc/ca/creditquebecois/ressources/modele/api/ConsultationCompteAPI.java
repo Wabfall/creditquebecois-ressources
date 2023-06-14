@@ -7,7 +7,7 @@ import java.util.List;
 public class ConsultationCompteAPI {
 
     @JsonProperty("nomDeCompte")
-    private String nomDeCompte ;
+    private String nomDeCompte;
 
     @JsonProperty("soldeCompte")
     private Double soldeCompte;

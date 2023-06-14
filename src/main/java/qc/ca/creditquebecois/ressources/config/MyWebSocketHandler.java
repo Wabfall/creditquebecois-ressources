@@ -14,6 +14,7 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 public class MyWebSocketHandler extends TextWebSocketHandler {
     /**
      * Cette méthode est appelée lorsque la connexion WebSocket est établie avec succès.
+     *
      * @param session
      * @throws Exception
      */
@@ -24,6 +25,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 
     /**
      * Cette méthode est appelée lorsqu'un message texte WebSocket est reçu
+     *
      * @param session
      * @param message
      * @throws Exception
@@ -32,8 +34,10 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
         // Logique pour traiter les messages WebSocket reçus
     }
+
     /**
      * Cette méthode est appelée lorsque la connexion WebSocket est fermée.
+     *
      * @param session
      * @param status
      * @throws Exception

@@ -17,6 +17,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     /**
      * C'est le constructeur de la classe WebSocketConfig
+     *
      * @param myWebSocketHandler the my web socket handler
      */
     public WebSocketConfig(MyWebSocketHandler myWebSocketHandler) {
@@ -25,6 +26,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     /**
      * Permet d'enregistrer des gestionnaires de WebSocket dans le registre registry
+     *
      * @param registry
      */
     @Override
@@ -35,6 +37,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     /**
      * LA méthode ServletServerContainerFactoryBean crée et configure un conteneur de serveur Servlet pour les connexions WebSocket.
+     *
      * @return servlet server container factory bean
      */
     @Bean
